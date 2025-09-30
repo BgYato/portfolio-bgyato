@@ -1,19 +1,67 @@
-# React + Vite
+# Mi portafolio :D
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este portafolio presenta mis proyectos y habilidades como desarrollador de software. Construido con React y optimizado con Vite para un rendimiento eficiente.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías
 
-## React Compiler
+* React
+* Vite
+* React Icons
+* CSS Modules / Tailwind
+* JavaScript (ES6+)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
+## Estructura del Proyecto
 
-## Expanding the ESLint configuration
+```plaintext
+portfolio-bgyato/
+├─ public/
+├─ src/
+│  ├─ components/
+│  ├─ utils/
+│  ├─ App.jsx
+│  └─ main.jsx
+├─ [package.json](http://_vscodecontentref_/0)
+├─ [vite.config.js](http://_vscodecontentref_/1)
+└─ [README.md](http://_vscodecontentref_/2)
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# portfolio-bgyato" 
+## Instalación
+
+Clonar el repositorio y ejecutar los comandos:
+
+```
+> git clone https://github.com/bgyato/portfolio-bgyato.git
+> cd portfolio-bgyato
+> npm install
+> npm run dev
+```
+
+Luego abrir [http://localhost:5173](http://localhost:5173) en el navegador.
+
+---
+
+## Funcionalidades
+
+* Portafolio responsivo para dispositivos móviles, tablets y escritorio.
+* Secciones principales: Sobre mí, Proyectos, Contacto, Hoja de vida, etc.
+* Navegación fluida con interacciones y animaciones sutiles.
+* Código modular y fácil de mantener.
+
+---
+
+## Próximos pasos
+
+* Integración de TypeScript para mayor seguridad de tipos.
+* Mejoras en accesibilidad y SEO.
+* Despliegue en plataformas como Vercel o Netlify.
+* Posible incorporación de sección de blog para compartir conocimientos.
+
+---
+
+## Contacto
+
+* Email: [andresfyatem@gmail.com](mailto:andresfyatem@gmail.com)
+* LinkedIn: [https://linkedin.com/in/andres-felipe-yate-munoz](https://www.linkedin.com/in/andres-felipe-yate-munoz-a177252a9/)
+* GitHub: [https://github.com/bgyato](https://github.com/tu-usuario)
