@@ -64,4 +64,4 @@ Luego abrir [http://localhost:5173](http://localhost:5173) en el navegador.
 
 * Email: [andresfyatem@gmail.com](mailto:andresfyatem@gmail.com)
 * LinkedIn: [https://linkedin.com/in/andres-felipe-yate-munoz](https://www.linkedin.com/in/andres-felipe-yate-munoz-a177252a9/)
-* GitHub: [https://github.com/bgyato](https://github.com/tu-usuario)
+* GitHub: [https://github.com/bgyato](https://github.com/BgYato)
