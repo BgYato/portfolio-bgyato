@@ -22,9 +22,9 @@ portfolio-bgyato/
 │  ├─ utils/
 │  ├─ App.jsx
 │  └─ main.jsx
-├─ [package.json](http://_vscodecontentref_/0)
-├─ [vite.config.js](http://_vscodecontentref_/1)
-└─ [README.md](http://_vscodecontentref_/2)
+├─ package.json
+├─ vite.config.js
+└─ README.md
 ```
 
 ## Instalación
