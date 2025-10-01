@@ -72,20 +72,20 @@ function Projects() {
 
                 {/* Links */}
                 <div className="flex space-x-4">
-                  <a
+                  {project.github && ( <a
                     href={project.github}
                     className="px-4 py-2 bg-cyan-500 text-black rounded hover:bg-cyan-400 transition select-none"
                     target="_blank"
                   >
                     GitHub
-                  </a>
-                  <a
+                  </a> )}   
+                  {project.demo && ( <a
                     href={project.demo}
                     className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition select-none"
                     target="_blank"
                   >
                     Demo
-                  </a>
+                  </a> )}
                 </div>
               </div>
             </div>

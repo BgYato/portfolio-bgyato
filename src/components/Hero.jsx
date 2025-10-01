@@ -8,8 +8,14 @@ function Hero() {
     >
       {/* Imagen izquierda */}
       <div className="flex-1 flex justify-center mb-8 md:mb-0">
-        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gray-700 flex items-center justify-center">
-          <span className="text-gray-400">Tu Foto</span>
+        <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full rounded-full bg-gray-700"></div>
+          <img
+            src="https://imgur.com/tyGkvm3.png"
+            alt="Foto de perfil"
+            className="absolute inset-0 w-full h-full object-cover rounded-full 
+                 translate-y-[-15%] shadow-xl select-none"
+          />
         </div>
       </div>
 
@@ -19,7 +25,13 @@ function Hero() {
 
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">
           <Typewriter
-            words={["Andres Yate", "BgYato", "Desarrollador", "Programador", "Peaceful"]}
+            words={[
+              "Andres Yate",
+              "BgYato",
+              "Desarrollador",
+              "Programador",
+              "Peaceful",
+            ]}
             loop={true}
             cursor
             cursorStyle="|"

@@ -8,11 +8,11 @@ function ScrollButtons() {
     "skills",
     "projects",
     "timeline",
+    "cv",
     "contact",
   ];
   const [current, setCurrent] = useState("home");
 
-  // Detectar sección visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,7 +22,7 @@ function ScrollButtons() {
           }
         });
       },
-      { threshold: 0.6 } // 60% visible = sección activa
+      { threshold: 0.6 }
     );
 
     sections.forEach((id) => {
