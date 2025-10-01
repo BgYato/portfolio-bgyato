@@ -1,34 +1,82 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { events } from "../utils/eventsData";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
-function Timeline() {
-  const [selected, setSelected] = useState(null);
+function Timeline({ isClickable, setIsClickable }) {
+  const [selected, setSelected] = useState(events[0]);
   const [imageIndex, setImageIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const intervalRef = useRef(null);
 
-  // efecto de slider automático
-  useEffect(() => {
-    if (selected?.images?.length > 1) {
-      const interval = setInterval(() => {
-        setImageIndex((prev) => (prev + 1) % selected.images.length);
-      }, 4000); // cada 4s cambia
-      return () => clearInterval(interval);
+  const stopInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
-  }, [selected]);
+  };
+
+  const startInterval = () => {
+    stopInterval();
+    if (!isOpen && selected?.images?.length > 1) {
+      intervalRef.current = setInterval(() => {
+        setImageIndex((prev) => (prev + 1) % selected.images.length);
+      }, 6000);
+    }
+  };
+
+  const resetInterval = () => {
+    stopInterval();
+    startInterval();
+  };
+
+  const handleSelect = (event) => {
+    setSelected(event);
+    setImageIndex(0);
+    startInterval();
+  };
 
   const prevImage = () => {
     if (selected?.images?.length > 1) {
       setImageIndex((prev) =>
         prev === 0 ? selected.images.length - 1 : prev - 1
       );
+      resetInterval();
     }
   };
 
   const nextImage = () => {
     if (selected?.images?.length > 1) {
       setImageIndex((prev) => (prev + 1) % selected.images.length);
+      resetInterval();
     }
   };
+
+  const openLightbox = () => {
+    setIsOpen(true);
+    setIsClickable(false);
+    stopInterval();
+  };
+
+  const closeLightbox = () => {
+    setIsOpen(false);
+    setIsClickable(true);
+    startInterval();
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        closeLightbox();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    startInterval();
+    return () => stopInterval();
+  }, [selected]);
 
   return (
     <section
@@ -37,17 +85,14 @@ function Timeline() {
     >
       <h2 className="text-3xl font-bold mb-10 text-cyan-400">Biografía</h2>
 
-      {/* Línea */}
+      {/* Línea del tiempo */}
       <div className="relative w-full max-w-5xl h-20 flex items-center">
         <div className="absolute top-1/2 left-0 right-0 border-t-2 border-gray-600"></div>
         <div className="flex justify-between w-full relative">
           {events.map((e, i) => (
             <button
               key={i}
-              onClick={() => {
-                setSelected(e);
-                setImageIndex(0); // reset slider
-              }}
+              onClick={() => handleSelect(e)}
               className="relative flex flex-col items-center cursor-pointer transition"
             >
               <div
@@ -56,7 +101,7 @@ function Timeline() {
                     ? "bg-cyan-500 border-cyan-500 scale-110"
                     : "bg-gray-800 border-gray-500 hover:border-cyan-400"
                 } transition-transform`}
-              ></div>
+              />
               <span
                 className={`mt-2 text-sm ${
                   selected?.year === e.year
@@ -81,11 +126,15 @@ function Timeline() {
             {/* Imagen / Slider */}
             {selected.images && selected.images.length > 0 && (
               <div className="relative flex justify-center">
-                <img
+                {selected.images[imageIndex] ? (<img
                   src={selected.images[imageIndex]}
                   alt={selected.year}
-                  className="rounded-lg shadow-md max-h-72 object-contain w-full"
-                />
+                  className="rounded-lg shadow-md max-h-72 object-contain w-full cursor-zoom-in transform transition-all duration-300 hover:scale-105"
+                  onClick={openLightbox}
+                />) : (<div className="flex items-center justify-center h-72 w-full bg-gray-800 rounded-lg shadow-md">
+                  <span className="text-gray-500 italic">Imagen no disponible</span>
+                </div>
+                )}
                 {selected.images.length > 1 && (
                   <>
                     <button
@@ -111,12 +160,11 @@ function Timeline() {
                 {selected.year}
               </h3>
               <p className="text-gray-300 mb-4">{selected.description}</p>
-
               {selected.highlights && (
-                <ul className="text-gray-400 mb-6 space-y-2">
+                <ul className="text-gray-400 mb-6 space-y-2 min-h-48">
                   {selected.highlights.map((h, idx) => (
                     <li key={idx} className="flex items-center space-x-2">
-                      <span className="text-cyan-400">✔</span>
+                      <FaChevronRight className="text-cyan-400" />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -130,6 +178,40 @@ function Timeline() {
           </p>
         )}
       </div>
+
+      {/* Lightbox */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fadeIn">
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white text-2xl hover:text-cyan-400 cursor-pointer"
+          >
+            <FaTimes />
+          </button>
+          <img
+            src={selected.images[imageIndex]}
+            alt={selected.year}
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg transform transition-all duration-300 scale-95 hover:scale-100"
+          />
+          {/* Prev/Next dentro del lightbox */}
+          {selected.images.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="cursor-pointer absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-cyan-500 transition"
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                onClick={nextImage}
+                className="cursor-pointer absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-cyan-500 transition"
+              >
+                <FaChevronRight />
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </section>
   );
 }

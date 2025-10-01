@@ -1,25 +1,15 @@
 import { useEffect, useState } from "react";
-import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
-function ScrollButtons() {
-  const sections = [
-    "home",
-    "about",
-    "skills",
-    "projects",
-    "timeline",
-    "cv",
-    "contact",
-  ];
+function ScrollButtons({ isClickable }) {
+  const sections = ["home","about","skills","projects","timeline","cv","contact"];
   const [current, setCurrent] = useState("home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrent(entry.target.id);
-          }
+          if (entry.isIntersecting) setCurrent(entry.target.id);
         });
       },
       { threshold: 0.6 }
@@ -34,6 +24,8 @@ function ScrollButtons() {
   }, []);
 
   const scrollTo = (direction) => {
+    if (!isClickable) return;
+
     const index = sections.findIndex((id) => id === current);
     let newIndex = direction === "down" ? index + 1 : index - 1;
 
@@ -45,19 +37,16 @@ function ScrollButtons() {
   };
 
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-6 z-50">
-      {/* Botón UP */}
+    <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-6 z-30">
       <button
         onClick={() => scrollTo("up")}
-        className="p-3 bg-black/40 cursor-pointer text-white rounded-full hover:bg-cyan-500 transition animate-pulse"
+        className={`p-3 bg-black/40 cursor-pointer text-white rounded-full hover:bg-cyan-500 transition animate-pulse ${!isClickable ? "pointer-events-none opacity-50" : ""}`}
       >
         <FiChevronUp size={26} />
       </button>
-
-      {/* Botón DOWN */}
       <button
         onClick={() => scrollTo("down")}
-        className="p-3 bg-black/40 cursor-pointer text-white rounded-full hover:bg-cyan-500 transition animate-pulse"
+        className={`p-3 bg-black/40 cursor-pointer text-white rounded-full hover:bg-cyan-500 transition animate-pulse ${!isClickable ? "pointer-events-none opacity-50" : ""}`}
       >
         <FiChevronDown size={26} />
       </button>

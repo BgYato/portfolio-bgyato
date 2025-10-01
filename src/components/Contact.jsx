@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope, FaInstagram, FaYoutube } from "react-icons/fa";
 
 function Contact() {
   return (
@@ -58,6 +58,28 @@ function Contact() {
         >
           <FaEnvelope className="text-2xl text-red-400" />
           <span className="font-medium">Gmail</span>
+        </a>
+
+        <a
+          href="https://www.youtube.com/@BgYato05"
+          target="_blank"
+          className="flex items-center justify-center space-x-3 px-6 py-3 
+                     w-full md:w-auto bg-gray-800 rounded-full 
+                     hover:bg-white hover:text-black transition"
+        >
+          <FaYoutube className="text-2xl text-red-400" />
+          <span className="font-medium">Youtube</span>
+        </a>
+
+        <a
+          href="https://www.instagram.com/_bgyato/"
+          target="_blank"
+          className="flex items-center justify-center space-x-3 px-6 py-3 
+                     w-full md:w-auto bg-gray-800 rounded-full 
+                     hover:bg-violet-500 hover:text-black transition"
+        >
+          <FaInstagram className="text-2xl text-violet-400" />
+          <span className="font-medium">Instagram</span>
         </a>
       </div>
     </section>
