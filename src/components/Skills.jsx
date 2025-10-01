@@ -18,7 +18,7 @@ function Skills() {
         aplicado en mis proyectos.
       </p>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-10 text-5xl">
+      <div className="grid grid-cols-3 md:grid-cols-6 xl:grid-cols-7 gap-10 text-5xl">
         {skills.map((skill, i) => {
           const Icon = skill.icon;
           return (

@@ -30,7 +30,7 @@ function CV() {
           </a>
         </div>
 
-        <div className="w-full h-[500px] bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full h-[500px] xl:h-[400px] bg-gray-900 rounded-lg overflow-hidden shadow-lg">
           <iframe
             src="/cv.pdf"
             title="CV Preview"

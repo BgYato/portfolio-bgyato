@@ -21,7 +21,7 @@ function Projects() {
       id="projects"
       className="relative min-h-screen flex flex-col items-center justify-center px-8 w-full"
     >
-      <h2 className="text-3xl font-bold mb-10 text-cyan-400">Proyectos</h2>
+      <h2 className="text-3xl font-bold mb-10 xl:mb-1 text-cyan-400">Proyectos</h2>
 
       <div className="relative w-full max-w-6xl">
         {/* Scroll contenedor */}
@@ -36,7 +36,8 @@ function Projects() {
                          shadow-lg hover:shadow-cyan-400/30 
                          hover:scale-105 hover:-translate-y-2
                          transition-transform duration-300 
-                         flex flex-col min-h-full select-none"
+                         flex flex-col min-h-full select-none
+                         xl:max-h-[500px]"
             >
               {/* Imagen */}
               <div className="w-full h-48 overflow-hidden rounded-t-lg">
