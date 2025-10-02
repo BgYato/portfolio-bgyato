@@ -44,10 +44,8 @@ function ScrollButtons({ isClickable }) {
         clearTimeout(scrollTimeoutRef.current);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // only on mount
 
-  // obtiene el índice de la sección más cercana al centro de la pantalla
   const getClosestSectionIndex = () => {
     let closest = 0;
     let minDist = Infinity;
@@ -70,29 +68,28 @@ function ScrollButtons({ isClickable }) {
 
   const scrollToSection = (index) => {
     if (index < 0 || index >= sections.length) return;
-    // bloqueo inmediato
     setScrollingState(true);
 
     const el = document.getElementById(sections[index]);
     if (!el) {
-      // en caso raro que no exista
-      scrollTimeoutRef.current = setTimeout(() => setScrollingState(false), 600);
+      scrollTimeoutRef.current = setTimeout(() => setScrollingState(false), 400);
       return;
     }
 
-    el.scrollIntoView({ behavior: "smooth" });
+    // calcular posición exacta de la sección
+    const top = el.offsetTop;
+    window.scrollTo({ top, behavior: "smooth" });
+
     setCurrent(sections[index]);
 
-    // asegurar que el lock se quite después de la animación (ajusta tiempo si tu smooth es más lento)
     if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-    scrollTimeoutRef.current = setTimeout(() => setScrollingState(false), 700);
+    scrollTimeoutRef.current = setTimeout(() => setScrollingState(false), 500);
   };
 
-  // WHEEL (mouse / trackpad)
+  // WHEEL
   useEffect(() => {
     const handleWheel = (e) => {
       if (!isClickable || scrollingRef.current) return;
-      // bloqueamos el comportamiento nativo para evitar "doble scroll"
       e.preventDefault();
       const idx = getClosestSectionIndex();
       if (e.deltaY > 0) scrollToSection(idx + 1);
@@ -101,9 +98,9 @@ function ScrollButtons({ isClickable }) {
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     return () => window.removeEventListener("wheel", handleWheel);
-  }, [isClickable]); // reañadir si cambia isClickable
+  }, [isClickable]);
 
-  // KEYS (teclado)
+  // KEYS
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isClickable || scrollingRef.current) return;
@@ -114,27 +111,36 @@ function ScrollButtons({ isClickable }) {
         if (e.key === "ArrowDown") scrollToSection(idx + 1);
         else scrollToSection(idx - 1);
       }
-      // si quieres PageUp/PageDown/Space, los puedes agregar aquí
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isClickable]);
 
-  // TOUCH (móvil): detecta swipe vertical
+  // TOUCH (móvil): swipe mejorado
   useEffect(() => {
     let touchStartY = 0;
+    let touchStartTime = 0;
+
     const handleTouchStart = (e) => {
       touchStartY = e.touches?.[0]?.clientY ?? 0;
+      touchStartTime = Date.now();
     };
+
     const handleTouchEnd = (e) => {
       if (!isClickable || scrollingRef.current) return;
       const touchEndY = e.changedTouches?.[0]?.clientY ?? 0;
       const diff = touchStartY - touchEndY;
-      const idx = getClosestSectionIndex();
+      const time = Date.now() - touchStartTime;
 
-      if (diff > 50) scrollToSection(idx + 1); // swipe up -> next
-      else if (diff < -50) scrollToSection(idx - 1); // swipe down -> prev
+      const idx = getClosestSectionIndex();
+      const velocity = Math.abs(diff / time); // velocidad del swipe
+
+      if (diff > 50 || (velocity > 0.5 && diff > 30)) {
+        scrollToSection(idx + 1);
+      } else if (diff < -50 || (velocity > 0.5 && diff < -30)) {
+        scrollToSection(idx - 1);
+      }
     };
 
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
