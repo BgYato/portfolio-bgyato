@@ -35,11 +35,11 @@ function Projects() {
             <div
               key={i}
               className="min-w-[300px] md:min-w-[380px] bg-gray-800 rounded-lg 
-                         shadow-lg hover:shadow-cyan-400/30 
-                         hover:scale-105 hover:-translate-y-2
-                         transition-transform duration-300 
-                         flex flex-col min-h-full select-none
-                         xl:max-h-[500px]"
+             shadow-lg hover:shadow-cyan-400/30 
+             hover:scale-105 hover:-translate-y-2
+             transition-transform duration-300 
+             flex flex-col min-h-full select-none
+             xl:max-h-[500px]"
             >
               {/* Imagen */}
               <div className="w-full h-48 overflow-hidden rounded-t-lg">
@@ -51,32 +51,33 @@ function Projects() {
               </div>
 
               {/* Contenido */}
-              <div className="flex-1 p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white select-none">
+              <div className="flex-1 p-6 flex flex-col">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-2 text-white">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-xs md:text-sm mb-4 md:mb-10 select-none max-h-12 md:max-h-24 overflow-clip">
+                  <p className="text-gray-400 text-xs md:text-sm mb-4 line-clamp-3">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="flex flex-row overflow-scroll no-scrollbar md:flex-wrap gap-2 mb-4">
+                {/* Tech */}
+                <div className="flex flex-row overflow-x-auto no-scrollbar gap-2 mb-4">
                   {project.tech.map((t, j) => (
                     <span
                       key={j}
-                      className="px-2 py-1 text-xs bg-black/40 text-cyan-400 rounded select-none"
+                      className="px-2 py-1 text-xs bg-black/40 text-cyan-400 rounded whitespace-nowrap"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-
-                <div className="flex space-x-4">
+                {/* Botones */}
+                <div className="flex space-x-4 mt-auto min-h-[40px]">
                   {project.github && (
                     <a
                       href={project.github}
-                      className="px-4 py-2 bg-cyan-500 text-black rounded hover:bg-cyan-400 transition select-none"
+                      className="px-4 py-2 bg-cyan-500 text-black rounded hover:bg-cyan-400 transition"
                       target="_blank"
                     >
                       GitHub
@@ -85,7 +86,7 @@ function Projects() {
                   {project.demo && (
                     <a
                       href={project.demo}
-                      className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition select-none"
+                      className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition"
                       target="_blank"
                     >
                       Demo
@@ -96,10 +97,6 @@ function Projects() {
             </div>
           ))}
         </div>
-
-        <p className="md:hidden text-center text-gray-500 text-sm mb-4 animate-pulse">
-          Desliza para ver más
-        </p>
 
         {/* Botones de navegación */}
         <button
