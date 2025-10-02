@@ -2,6 +2,12 @@
 
 Este portafolio presenta mis proyectos y habilidades como desarrollador de software. Construido con React y optimizado con Vite para un rendimiento eficiente.
 
+## Acceso al portafolio
+
+Podrás acceder al portafolio en línea a través de esté enlace:
+
+> https://bgyato.com
+
 
 ## Tecnologías
 

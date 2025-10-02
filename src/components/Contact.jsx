@@ -1,4 +1,11 @@
-import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaWhatsapp,
+  FaEnvelope,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 
 function Contact() {
   return (

@@ -16,7 +16,6 @@ function About() {
     return () => clearInterval(interval);
   }, []);
 
-  // Definimos posiciones tipo escalera
   const positions = [
     { top: 0, left: 0, scale: 1, z: 20 }, // frente
     { top: 8, left: 12, scale: 0.95, z: 10 }, // medio
@@ -28,14 +27,12 @@ function About() {
       id="about"
       className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-12"
     >
-      {/* Título centrado */}
       <h2 className="text-3xl font-bold mb-10 text-cyan-400 text-center">
         Sobre mí
       </h2>
 
       {/* Contenedor principal: dos columnas */}
       <div className="grid md:grid-cols-2 gap-10 w-full max-w-6xl items-center">
-        {/* Columna izquierda: texto */}
         <div className="flex flex-col space-y-4 text-center md:text-left">
           <p className="text-gray-300 text-lg leading-relaxed">
             Soy un apasionado por la tecnología y el desarrollo de software. Me
@@ -50,7 +47,7 @@ function About() {
         </div>
 
         {/* Columna derecha: collage tipo escalera */}
-        <div className="relative w-full h-64 md:h-80 ml-24 flex justify-center">
+        <div className="hidden relative w-full h-64 md:h-80 ml-24 md:flex justify-center">
           {images.map((img, index) => {
             const offset = (index - frontIndex + images.length) % images.length;
             const pos = positions[offset];
@@ -62,8 +59,8 @@ function About() {
                 alt={img.alt}
                 className="absolute rounded-xl ml-12 shadow-lg transition-all duration-500 ease-in-out w60 h-60 md:w-60 md:h-82 object-cover hover:scale-105 "
                 style={{
-                  top: "50%", 
-                  left: `${pos.left}px`, 
+                  top: "50%",
+                  left: `${pos.left}px`,
                   zIndex: pos.z,
                   transform: `translateY(-50%) scale(${pos.scale})`,
                 }}
