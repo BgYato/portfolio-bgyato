@@ -33,16 +33,13 @@ function About() {
 
       {/* Contenedor principal: dos columnas */}
       <div className="grid md:grid-cols-2 gap-10 w-full max-w-6xl items-center">
-        <div className="flex flex-col space-y-4 text-center md:text-left">
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Soy un apasionado por la tecnología y el desarrollo de software. Me
-            gusta crear soluciones minimalistas y eficientes, aprender nuevas
-            herramientas y compartir conocimiento. 🚀
-          </p>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Actualmente me enfoco en proyectos fullstack, diseño de interfaces
-            limpias y escribir código mantenible. Siempre buscando crecer y
-            aportar valor.
+        <div className="flex flex-col text-left">
+          <p className="text-gray-300 px-2 text-sm md:text-lg leading-relaxed">
+            Soy un profesional apasionado por la tecnología y el desarrollo de
+            software, enfocado en crear soluciones minimalistas, eficientes y de
+            alto impacto. Me caracterizo por el aprendizaje continuo, la
+            escritura de código mantenible y el diseño de interfaces limpias que
+            aporten valor en cada proyecto. 🚀
           </p>
         </div>
 

@@ -47,10 +47,6 @@ function Skills() {
       </div>
 
       <div className="md:hidden w-full">
-        <p className="text-center text-gray-500 text-sm mb-4 animate-pulse">
-          Desliza para ver más
-        </p>
-
         <div className="flex overflow-x-auto no-scrollbar py-4 space-x-8 text-4xl">
           {skills.map((skill, i) => {
             const Icon = skill.icon;
@@ -67,6 +63,10 @@ function Skills() {
               </div>
             );
           })}
+        </div>
+
+        <div className="flex justify-center mt-2">
+          <span className="text-gray-500 text-2xl animate-pulse">⇆</span>
         </div>
       </div>
     </section>

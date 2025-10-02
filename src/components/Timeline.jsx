@@ -165,14 +165,14 @@ function Timeline({ isClickable, setIsClickable }) {
               </h3>
               <p className="text-gray-300 mb-4">{selected.description}</p>
               {selected.highlights && (
-                <ul className="text-gray-400 mb-6 space-y-2 min-h-48">
+                <ul className="text-gray-400 mb-6 space-y-2 min-h-48 text-left">
                   {selected.highlights.map((h, idx) => (
                     <li
                       key={idx}
-                      className="flex items-center text-xs md:text-normal space-x-2"
+                      className="flex items-center text-xs md:text-sm space-x-2"
                     >
-                      <FaChevronRight className="text-cyan-400" />
-                      <span>{h}</span>
+                      <FaChevronRight className="text-cyan-400 flex-shrink-0" />
+                      <span className="leading-snug">{h}</span>
                     </li>
                   ))}
                 </ul>

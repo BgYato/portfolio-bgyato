@@ -46,18 +46,6 @@ function Contact() {
         </a>
 
         <a
-          href="https://wa.me/573222379887"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center space-x-3 px-6 py-3 
-                     w-full md:w-auto bg-gray-800 rounded-full 
-                     hover:bg-green-500 hover:text-black transition"
-        >
-          <FaWhatsapp className="text-2xl text-green-400" />
-          <span className="font-medium">WhatsApp</span>
-        </a>
-
-        <a
           href="mailto:andresfyatem@gmail.com"
           className="flex items-center justify-center space-x-3 px-6 py-3 
                      w-full md:w-auto bg-gray-800 rounded-full 
@@ -79,14 +67,15 @@ function Contact() {
         </a>
 
         <a
-          href="https://www.instagram.com/_bgyato/"
+          href="https://wa.me/573222379887"
           target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center justify-center space-x-3 px-6 py-3 
                      w-full md:w-auto bg-gray-800 rounded-full 
-                     hover:bg-violet-500 hover:text-black transition"
+                     hover:bg-green-500 hover:text-black transition"
         >
-          <FaInstagram className="text-2xl text-violet-400" />
-          <span className="font-medium">Instagram</span>
+          <FaWhatsapp className="text-2xl text-green-400" />
+          <span className="font-medium">WhatsApp</span>
         </a>
       </div>
     </section>
