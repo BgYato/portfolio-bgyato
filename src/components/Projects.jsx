@@ -21,7 +21,9 @@ function Projects() {
       id="projects"
       className="relative min-h-screen flex flex-col items-center justify-center px-8 w-full"
     >
-      <h2 className="text-3xl font-bold mb-10 xl:mb-1 text-cyan-400">Proyectos</h2>
+      <h2 className="text-3xl font-bold md:mb-10 xl:mb-1 text-cyan-400 md:mt-10">
+        Proyectos
+      </h2>
 
       <div className="relative w-full max-w-6xl">
         {/* Scroll contenedor */}
@@ -54,13 +56,12 @@ function Projects() {
                   <h3 className="text-xl font-semibold mb-2 text-white select-none">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 select-none">
+                  <p className="text-gray-400 text-xs md:text-sm mb-4 md:mb-10 select-none max-h-12 md:max-h-24 overflow-clip">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Tecnologías */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-row overflow-scroll no-scrollbar md:flex-wrap gap-2 mb-4">
                   {project.tech.map((t, j) => (
                     <span
                       key={j}
@@ -71,27 +72,34 @@ function Projects() {
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex space-x-4">
-                  {project.github && ( <a
-                    href={project.github}
-                    className="px-4 py-2 bg-cyan-500 text-black rounded hover:bg-cyan-400 transition select-none"
-                    target="_blank"
-                  >
-                    GitHub
-                  </a> )}   
-                  {project.demo && ( <a
-                    href={project.demo}
-                    className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition select-none"
-                    target="_blank"
-                  >
-                    Demo
-                  </a> )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      className="px-4 py-2 bg-cyan-500 text-black rounded hover:bg-cyan-400 transition select-none"
+                      target="_blank"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition select-none"
+                      target="_blank"
+                    >
+                      Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        <p className="md:hidden text-center text-gray-500 text-sm mb-4 animate-pulse">
+          Desliza para ver más
+        </p>
 
         {/* Botones de navegación */}
         <button

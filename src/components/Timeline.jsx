@@ -123,17 +123,21 @@ function Timeline({ isClickable, setIsClickable }) {
       >
         {selected ? (
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Imagen / Slider */}
             {selected.images && selected.images.length > 0 && (
-              <div className="relative flex justify-center">
-                {selected.images[imageIndex] ? (<img
-                  src={selected.images[imageIndex]}
-                  alt={selected.year}
-                  className="rounded-lg shadow-md max-h-72 object-contain w-full cursor-zoom-in transform transition-all duration-300 hover:scale-105"
-                  onClick={openLightbox}
-                />) : (<div className="flex items-center justify-center h-72 w-full bg-gray-800 rounded-lg shadow-md">
-                  <span className="text-gray-500 italic">Imagen no disponible</span>
-                </div>
+              <div className="hidden relative md:flex justify-center">
+                {selected.images[imageIndex] ? (
+                  <img
+                    src={selected.images[imageIndex]}
+                    alt={selected.year}
+                    className="rounded-lg shadow-md max-h-72 object-contain w-full cursor-zoom-in transform transition-all duration-300 hover:scale-105"
+                    onClick={openLightbox}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-72 w-full bg-gray-800 rounded-lg shadow-md">
+                    <span className="text-gray-500 italic">
+                      Imagen no disponible
+                    </span>
+                  </div>
                 )}
                 {selected.images.length > 1 && (
                   <>
@@ -163,7 +167,10 @@ function Timeline({ isClickable, setIsClickable }) {
               {selected.highlights && (
                 <ul className="text-gray-400 mb-6 space-y-2 min-h-48">
                   {selected.highlights.map((h, idx) => (
-                    <li key={idx} className="flex items-center space-x-2">
+                    <li
+                      key={idx}
+                      className="flex items-center text-xs md:text-normal space-x-2"
+                    >
                       <FaChevronRight className="text-cyan-400" />
                       <span>{h}</span>
                     </li>
@@ -179,7 +186,7 @@ function Timeline({ isClickable, setIsClickable }) {
         )}
       </div>
 
-      {/* Lightbox */}
+      {/* Previsualización */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fadeIn">
           <button
@@ -193,7 +200,7 @@ function Timeline({ isClickable, setIsClickable }) {
             alt={selected.year}
             className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg transform transition-all duration-300 scale-95 hover:scale-100"
           />
-          {/* Prev/Next dentro del lightbox */}
+          {/* Prev/Next dentro de la imagen */}
           {selected.images.length > 1 && (
             <>
               <button

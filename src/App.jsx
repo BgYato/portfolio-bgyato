@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollButtons from "./components/ScrollButtons";
 import CV from "./components/CV";
-import { use, useState } from "react";
+import { useState } from "react";
 function App() {
   const [isClickable, setIsClickable] = useState(true);
 

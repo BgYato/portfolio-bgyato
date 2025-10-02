@@ -26,7 +26,7 @@ html {
   background: linear-gradient(to bottom, #0891b2, #2563eb);
 }
 
-/* Ocultar scrollbar cross-browser */
+/* Ocultar scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -49,4 +49,3 @@ html {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out;
 }
-

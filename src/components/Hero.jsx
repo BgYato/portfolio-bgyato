@@ -7,7 +7,7 @@ function Hero() {
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-8 pt-20"
     >
       {/* Imagen izquierda */}
-      <div className="flex-1 flex justify-center mb-8 md:mb-0">
+      <div className="flex-1 flex justify-center mt-8 mb-8 md:mb-0 md:mt-0">
         <div className="relative w-64 h-64 md:w-80 md:h-80">
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full rounded-full bg-gray-700"></div>
           <img

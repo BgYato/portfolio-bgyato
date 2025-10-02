@@ -18,7 +18,7 @@ function Skills() {
         aplicado en mis proyectos.
       </p>
 
-      {/* Versión escritorio → grid */}
+      {/* Versión escritorio */}
       <div className="hidden md:grid grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-10 text-5xl">
         {skills.map((skill, i) => {
           const Icon = skill.icon;
@@ -30,7 +30,7 @@ function Skills() {
               <Icon
                 className={`text-gray-500 transition-all duration-300 group-hover:scale-110 skill-${i}`}
               />
-              {/* Tooltip solo en escritorio */}
+              {/* Tooltip */}
               <span className="absolute bottom-[-2rem] opacity-0 group-hover:opacity-100 text-sm bg-black/70 text-white px-2 py-1 rounded transition">
                 {skill.name}
               </span>
@@ -46,9 +46,7 @@ function Skills() {
         })}
       </div>
 
-      {/* Versión móvil → scroll horizontal */}
       <div className="md:hidden w-full">
-        {/* Hint deslizar */}
         <p className="text-center text-gray-500 text-sm mb-4 animate-pulse">
           Desliza para ver más
         </p>

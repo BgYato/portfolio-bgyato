@@ -17,10 +17,11 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center py-4">
-        {/* Logo o Nombre */}
-        <div className="text-cyan-400 font-bold text-xl">BgYato - Portafolio</div>
-
-        {/* Links Desktop */}
+        <div className="text-cyan-400 font-bold text-xl">
+          BgYato - Portafolio
+        </div>
+        
+        {/* Enlaces de Navegación */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium">
           {links.map((link, i) => (
             <li key={i}>
