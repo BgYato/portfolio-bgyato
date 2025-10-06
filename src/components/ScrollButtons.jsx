@@ -17,7 +17,6 @@ function ScrollButtons({ isClickable }) {
   const scrollingRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
 
-  // sync scrollingRef + state
   const setScrollingState = (val) => {
     scrollingRef.current = val;
     setScrolling(val);
@@ -44,7 +43,7 @@ function ScrollButtons({ isClickable }) {
         clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, []); // only on mount
+  }, []);
 
   const getClosestSectionIndex = () => {
     let closest = 0;
@@ -72,7 +71,10 @@ function ScrollButtons({ isClickable }) {
 
     const el = document.getElementById(sections[index]);
     if (!el) {
-      scrollTimeoutRef.current = setTimeout(() => setScrollingState(false), 400);
+      scrollTimeoutRef.current = setTimeout(
+        () => setScrollingState(false),
+        400
+      );
       return;
     }
 

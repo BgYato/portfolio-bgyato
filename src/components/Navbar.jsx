@@ -20,7 +20,7 @@ function Navbar() {
         <div className="text-cyan-400 font-bold text-xl">
           BgYato - Portafolio
         </div>
-        
+
         {/* Enlaces de Navegación */}
         <ul className="hidden md:flex space-x-8 text-lg font-medium">
           {links.map((link, i) => (
