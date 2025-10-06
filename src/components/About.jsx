@@ -33,8 +33,8 @@ function About() {
 
         <blockquote className="hidden md:block about-quote">
           “Programs must be written for people to read, and only incidentally
-          for machines to execute.”  
-          <span>– Harold Abelson</span>
+          for machines to execute.”
+          <a href="https://es.wikipedia.org/wiki/Hal_Abelson" target="_blank"><span>– Harold Abelson</span></a>
         </blockquote>
       </div>
     </section>
