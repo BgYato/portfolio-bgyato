@@ -1,70 +1,41 @@
-import { useState, useEffect } from "react";
+import { FaReact, FaJava, FaNodeJs, FaPython } from "react-icons/fa";
+import { SiSpringboot, SiMysql } from "react-icons/si";
 
 function About() {
-  const images = [
-    { src: "https://imgur.com/G4BqFbP.png", alt: "Apenado" },
-    { src: "https://imgur.com/I37LsiK.png", alt: "Modo gracioso" },
-    { src: "https://imgur.com/8kRpJDa.png", alt: "Serio" },
-  ];
-
-  const [frontIndex, setFrontIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFrontIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const positions = [
-    { top: 0, left: 0, scale: 1, z: 20 }, // frente
-    { top: 8, left: 12, scale: 0.95, z: 10 }, // medio
-    { top: 16, left: 24, scale: 0.9, z: 0 }, // atrás
-  ];
-
   return (
-    <section
-      id="about"
-      className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-12"
-    >
-      <h2 className="text-3xl font-bold mb-10 text-cyan-400 text-center">
-        Sobre mí
-      </h2>
+    <section id="about" className="about-section">
+      <h2 className="about-title">Sobre mí</h2>
 
-      {/* Contenedor principal: dos columnas */}
-      <div className="grid md:grid-cols-2 gap-10 w-full max-w-6xl items-center">
-        <div className="flex flex-col text-left">
-          <p className="text-gray-300 px-2 text-sm md:text-lg leading-relaxed">
-            Soy un profesional apasionado por la tecnología y el desarrollo de
-            software, enfocado en crear soluciones minimalistas, eficientes y de
-            alto impacto. Me caracterizo por el aprendizaje continuo, la
-            escritura de código mantenible y el diseño de interfaces limpias que
-            aporten valor en cada proyecto. 🚀
-          </p>
-        </div>
+      {/* Íconos flotantes */}
+      <div className="floating-icons">
+        <FaReact className="icon react" />
+        <FaJava className="icon java" />
+        <FaNodeJs className="icon node" />
+        <FaPython className="icon python" />
+        <SiSpringboot className="icon spring" />
+        <SiMysql className="icon mysql" />
+      </div>
 
-        {/* Columna derecha: collage tipo escalera */}
-        <div className="hidden relative w-full h-64 md:h-80 ml-24 md:flex justify-center">
-          {images.map((img, index) => {
-            const offset = (index - frontIndex + images.length) % images.length;
-            const pos = positions[offset];
+      {/* Contenido */}
+      <div className="about-content">
+        <p>
+          Soy un desarrollador apasionado por crear software eficiente, modular
+          y con propósito. Disfruto trabajar con entornos donde la lógica se
+          mezcla con la creatividad, y cada línea de código tiene intención. 🚀
+        </p>
+        <p>
+          Trabajo principalmente con{" "}
+          <span className="highlight">Java (Spring Boot)</span>,{" "}
+          <span className="highlight">React</span> y{" "}
+          <span className="highlight">Node.js</span>, buscando siempre la
+          simplicidad y el impacto real en cada proyecto.
+        </p>
 
-            return (
-              <img
-                key={index}
-                src={img.src}
-                alt={img.alt}
-                className="absolute rounded-xl ml-12 shadow-lg transition-all duration-500 ease-in-out w60 h-60 md:w-60 md:h-82 object-cover hover:scale-105 "
-                style={{
-                  top: "50%",
-                  left: `${pos.left}px`,
-                  zIndex: pos.z,
-                  transform: `translateY(-50%) scale(${pos.scale})`,
-                }}
-              />
-            );
-          })}
-        </div>
+        <blockquote className="hidden md:block about-quote">
+          “Programs must be written for people to read, and only incidentally
+          for machines to execute.”  
+          <span>– Harold Abelson</span>
+        </blockquote>
       </div>
     </section>
   );
