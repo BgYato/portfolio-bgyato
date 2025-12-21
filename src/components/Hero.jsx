@@ -1,6 +1,30 @@
+import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 
 function Hero() {
+  const [lastCommit, setLastCommit] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "https://api.github.com/repos/BgYato/portfolio-bgyato/commits?per_page=5"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const realCommit = data.find(
+          (c) => !c.commit.message.toLowerCase().includes("merge")
+        );
+
+        if (realCommit) {
+          setLastCommit({
+            message: realCommit.commit.message,
+            date: realCommit.commit.author.date,
+            url: realCommit.html_url,
+          });
+        }
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <section
       id="home"
@@ -64,6 +88,32 @@ function Hero() {
             Continuar
           </a>
         </div>
+
+        {/* Última actualización */}
+        {lastCommit && (
+          <div className="text-sm text-gray-400 mt-4">
+            <p>
+              Última actualización:{" "}
+              <span className="text-cyan-400">
+                {new Date(lastCommit.date).toLocaleDateString()}
+              </span>
+            </p>
+
+            {/* Solo desktop */}
+            <p className="hidden md:block">
+              Razón: <span className="italic">“{lastCommit.message}”</span>
+              {" · "}
+              <a
+                href={lastCommit.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-500 hover:text-cyan-300 underline underline-offset-2"
+              >
+                ver commit
+              </a>
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
