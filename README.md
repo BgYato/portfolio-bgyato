@@ -6,17 +6,15 @@ Este portafolio presenta mis proyectos y habilidades como desarrollador de softw
 
 Podrás acceder al portafolio en línea a través de esté enlace:
 
-> https://bgyato.com
-
+> <https://bgyato.com>
 
 ## Tecnologías
 
-* React
-* Vite
-* React Icons
-* CSS Modules / Tailwind
-* JavaScript (ES6+)
-
+- React
+- Vite
+- React Icons
+- CSS Modules / Tailwind
+- JavaScript (ES6+)
 
 ## Estructura del Proyecto
 
@@ -35,7 +33,7 @@ portfolio-bgyato/
 
 ## Instalación
 
-Clonar el repositorio y ejecutar los comandos:
+En la consola de comandos ejecutar las siguientes lineas:
 
 ```
 > git clone https://github.com/bgyato/portfolio-bgyato.git
@@ -50,24 +48,24 @@ Luego abrir [http://localhost:5173](http://localhost:5173) en el navegador.
 
 ## Funcionalidades
 
-* Portafolio responsivo para dispositivos móviles, tablets y escritorio.
-* Secciones principales: Sobre mí, Proyectos, Contacto, Hoja de vida, etc.
-* Navegación fluida con interacciones y animaciones sutiles.
-* Código modular y fácil de mantener.
+- Portafolio responsivo para dispositivos móviles, tablets y escritorio.
+- Secciones principales: Sobre mí, Proyectos, Contacto, Hoja de vida, etc.
+- Navegación fluida con interacciones y animaciones sutiles.
+- Código modular y fácil de mantener.
 
 ---
 
 ## Próximos pasos
 
-* Integración de TypeScript para mayor seguridad de tipos.
-* Mejoras en accesibilidad y SEO.
-* Despliegue en plataformas como Vercel o Netlify.
-* Posible incorporación de sección de blog para compartir conocimientos.
+- Integración de TypeScript para mayor seguridad de tipos.
+- Mejoras en accesibilidad y SEO.
+- Despliegue en plataformas como Vercel o Netlify.
+- Posible incorporación de sección de blog para compartir conocimientos.
 
 ---
 
 ## Contacto
 
-* Email: [andresfyatem@gmail.com](mailto:andresfyatem@gmail.com)
-* LinkedIn: [https://linkedin.com/in/andres-felipe-yate-munoz](https://www.linkedin.com/in/andres-felipe-yate-munoz-a177252a9/)
-* GitHub: [https://github.com/bgyato](https://github.com/BgYato)
+- Email: [andresfyatem@gmail.com](mailto:andresfyatem@gmail.com)
+- LinkedIn: [https://linkedin.com/in/andres-felipe-yate-munoz](https://www.linkedin.com/in/andres-felipe-yate-munoz-a177252a9/)
+- GitHub: [https://github.com/bgyato](https://github.com/BgYato)
