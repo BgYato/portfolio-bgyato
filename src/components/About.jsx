@@ -3,9 +3,13 @@ import { SiSpringboot, SiMysql } from "react-icons/si";
 
 function About() {
   return (
-    <section id="about" className="about-section">
-      <h2 className="about-title">Sobre mí</h2>
-
+    <section id="about" className="about-section h-screen flex flex-col items-center justify-center">
+      <div className="text-center mb-10 md:mb-16">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+          Sobre <span className="text-cyan-500">mí</span>
+        </h2>
+        <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
+      </div>
       {/* Íconos flotantes */}
       <div className="floating-icons">
         <FaReact className="icon react" />

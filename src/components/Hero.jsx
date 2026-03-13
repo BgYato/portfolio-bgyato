@@ -47,22 +47,24 @@ function Hero() {
       <div className="flex-1 text-center md:text-left">
         <h2 className="text-xl md:text-2xl font-light mb-2">Soy</h2>
 
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">
-          <Typewriter
-            words={[
-              "Andres Yate",
-              "BgYato",
-              "Desarrollador",
-              "Programador",
-              "Peaceful",
-            ]}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={80}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-slate-100">
+          <span className="text-cyan-500">
+            <Typewriter
+              words={[
+                "Andres Yate",
+                "BgYato",
+                "Desarrollador",
+                "Programador",
+                "Peaceful",
+              ]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={80}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </span>
         </h1>
 
         {/* Subtítulo */}

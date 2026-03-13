@@ -81,139 +81,226 @@ function Timeline({ isClickable, setIsClickable }) {
   return (
     <section
       id="timeline"
-      className="min-h-screen flex flex-col items-center justify-center px-8"
+      className="h-screen flex flex-col items-center justify-center px-4 md:px-8 relative overflow-hidden py-8 md:py-20"
     >
-      <h2 className="text-3xl font-bold mb-10 text-cyan-400">Biografía</h2>
+      {/* Background Decorative Element */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      <div className="text-center mb-12 lg:mb-20">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+          Mi <span className="text-cyan-500">Trayectoria</span>
+        </h2>
+        <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
+      </div>
 
       {/* Línea del tiempo */}
-      <div className="relative w-full max-w-5xl h-20 flex items-center">
-        <div className="absolute top-1/2 left-0 right-0 border-t-2 border-gray-600"></div>
-        <div className="flex justify-between w-full relative">
-          {events.map((e, i) => (
-            <button
-              key={i}
-              onClick={() => handleSelect(e)}
-              className="relative flex flex-col items-center cursor-pointer transition"
-            >
-              <div
-                className={`w-4 h-4 rounded-full border-2 ${
-                  selected?.year === e.year
-                    ? "bg-cyan-500 border-cyan-500 scale-110"
-                    : "bg-gray-800 border-gray-500 hover:border-cyan-400"
-                } transition-transform`}
-              />
-              <span
-                className={`mt-2 text-sm ${
-                  selected?.year === e.year
-                    ? "text-cyan-400 font-semibold"
-                    : "text-gray-400"
-                }`}
+      <div className="relative w-full max-w-5xl mb-12">
+        {/* Base Line */}
+        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800/50 -translate-y-1/2 rounded-full" />
+        
+        {/* Progress Line */}
+        <div 
+          className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 -translate-y-1/2 transition-all duration-700 ease-out rounded-full shadow-[0_0_10px_rgba(6,182,212,0.3)]"
+          style={{ 
+            width: `${(events.indexOf(selected) / (events.length - 1)) * 100}%` 
+          }}
+        />
+
+        <div className="flex justify-between w-full relative z-10">
+          {events.map((e, i) => {
+            const isActive = selected?.year === e.year;
+            return (
+              <button
+                key={i}
+                onClick={() => handleSelect(e)}
+                className="group relative flex flex-col items-center cursor-pointer"
               >
-                {e.year}
-              </span>
-            </button>
-          ))}
+                {/* Outer Ring */}
+                <div
+                  className={`w-4 h-4 md:w-6 md:h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    isActive
+                      ? "bg-cyan-500/20 scale-125"
+                      : "bg-transparent group-hover:bg-slate-800/50"
+                  }`}
+                >
+                  {/* Inner Dot */}
+                  <div
+                    className={`w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full border-2 transition-all duration-300 ${
+                      isActive
+                        ? "bg-white border-cyan-400 scale-110 shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+                        : "bg-slate-700 border-slate-600 group-hover:border-cyan-500/50 group-hover:scale-110"
+                    }`}
+                  />
+                </div>
+                <span
+                  className={`mt-2 md:mt-4 text-[9px] md:text-xs font-medium tracking-wider transition-all duration-300 ${
+                    isActive
+                      ? "text-cyan-400"
+                      : "text-slate-500 group-hover:text-slate-300"
+                  }`}
+                >
+                  {e.year}
+                </span>
+                
+                {/* Year Badge on Hover */}
+                {!isActive && (
+                  <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                     <span className="text-[10px] bg-slate-800 text-slate-300 py-1 px-2 rounded border border-slate-700">
+                        {e.year}
+                     </span>
+                  </div>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Panel */}
+      {/* Panel de Contenido */}
       <div
         key={selected?.year || "empty"}
-        className="mt-10 w-full max-w-5xl animate-fadeIn"
+        className="w-full max-w-5xl animate-fadeIn"
       >
         {selected ? (
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {selected.images && selected.images.length > 0 && (
-              <div className="hidden relative md:flex justify-center">
-                {selected.images[imageIndex] ? (
-                  <img
-                    src={selected.images[imageIndex]}
-                    alt={selected.year}
-                    className="rounded-lg shadow-md max-h-72 object-contain w-full cursor-zoom-in transform transition-all duration-300 hover:scale-105"
-                    onClick={openLightbox}
-                  />
-                ) : (
-                  <div className="flex items-center justify-center h-72 w-full bg-gray-800 rounded-lg shadow-md">
-                    <span className="text-gray-500 italic">
-                      Imagen no disponible
-                    </span>
+          <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-5 md:p-10 shadow-2xl relative overflow-hidden group">
+            {/* Subtle Gradient Accent */}
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-500 opacity-50" />
+            
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+              {/* Carrusel de Imágenes - Oculto en móvil */}
+              {selected.images && selected.images.length > 0 && (
+                <div className="hidden md:block relative group/image">
+                  <div className="aspect-[4/3] w-full bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700/30">
+                    {selected.images[imageIndex] ? (
+                      <img
+                        src={selected.images[imageIndex]}
+                        alt={selected.year}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-105 cursor-zoom-in"
+                        onClick={openLightbox}
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full w-full">
+                        <span className="text-slate-500 italic text-sm">
+                          Sin imagen disponible
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Image Navigation Dots */}
+                  {selected.images.length > 1 && (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                       {selected.images.map((_, idx) => (
+                         <div 
+                           key={idx}
+                           className={`h-1.5 rounded-full transition-all duration-300 ${
+                             idx === imageIndex ? "w-4 bg-cyan-400" : "w-1.5 bg-slate-600"
+                           }`}
+                         />
+                       ))}
+                    </div>
+                  )}
+
+                  {/* Nav Buttons */}
+                  {selected.images.length > 1 && (
+                    <div className="absolute inset-x-2 top-1/2 -translate-y-1/2 flex justify-between opacity-0 group-hover/image:opacity-100 transition-opacity">
+                      <button
+                        onClick={prevImage}
+                        className="bg-slate-900/60 backdrop-blur-md p-2 rounded-full text-slate-300 hover:text-white border border-slate-700 hover:border-cyan-500/50 transition cursor-pointer"
+                      >
+                        <FaChevronLeft size={14} />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="bg-slate-900/60 backdrop-blur-md p-2 rounded-full text-slate-300 hover:text-white border border-slate-700 hover:border-cyan-500/50 transition cursor-pointer"
+                      >
+                        <FaChevronRight size={14} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Texto y Detalles */}
+              <div className="flex flex-col">
+                <div className="flex items-center space-x-3 mb-3 md:mb-4">
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase px-2 py-0.5 md:px-3 md:py-1 bg-cyan-950/30 border border-cyan-500/20 rounded-full">
+                    Evento
+                  </span>
+                  <h3 className="text-xl md:text-3xl font-bold text-white">
+                    {selected.year}
+                  </h3>
+                </div>
+                
+                <p className="text-slate-300 text-sm md:text-lg leading-relaxed mb-4 md:mb-8">
+                  {selected.description}
+                </p>
+
+                {selected.highlights && (
+                  <div className="space-y-2 md:space-y-4">
+                    <h4 className="text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2 md:mb-4">Hitos Clave</h4>
+                    <ul className="grid gap-2 md:gap-3">
+                      {selected.highlights.map((h, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start group/li"
+                        >
+                          <div className="mt-1.5 mr-2 md:mr-3 w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-cyan-500 shrink-0 group-hover/li:scale-125 transition-transform" />
+                          <span className="text-slate-400 text-xs md:text-sm leading-tight md:leading-snug group-hover/li:text-slate-200 transition-colors">
+                            {h}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
-                {selected.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-cyan-500 transition cursor-pointer"
-                    >
-                      <FaChevronLeft />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-cyan-500 transition cursor-pointer"
-                    >
-                      <FaChevronRight />
-                    </button>
-                  </>
-                )}
               </div>
-            )}
-
-            {/* Texto */}
-            <div className="text-center md:text-left">
-              <h3 className="text-2xl font-semibold text-cyan-400 mb-4">
-                {selected.year}
-              </h3>
-              <p className="text-gray-300 mb-4">{selected.description}</p>
-              {selected.highlights && (
-                <ul className="text-gray-400 mb-6 space-y-2 min-h-48 text-left">
-                  {selected.highlights.map((h, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center text-xs md:text-sm space-x-2"
-                    >
-                      <FaChevronRight className="text-cyan-400 flex-shrink-0" />
-                      <span className="leading-snug">{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
           </div>
         ) : (
-          <p className="text-gray-500 italic text-center">
-            Selecciona un año para ver detalles :D
-          </p>
+          <div className="bg-slate-900/20 border border-dashed border-slate-700 rounded-2xl p-20 text-center">
+            <p className="text-slate-500 italic">
+              Explora mi viaje académico y profesional seleccionando un hito en la línea.
+            </p>
+          </div>
         )}
       </div>
 
-      {/* Previsualización */}
+      {/* Lightbox / Preview */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fadeIn">
+        <div className="fixed inset-0 bg-slate-950/95 flex items-center justify-center z-[100] animate-fadeIn backdrop-blur-sm">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-2xl hover:text-cyan-400 cursor-pointer"
+            className="absolute top-8 right-8 text-slate-400 hover:text-white transition-colors cursor-pointer p-2 hover:bg-slate-800 rounded-full"
           >
-            <FaTimes />
+            <FaTimes size={32} />
           </button>
-          <img
-            src={selected.images[imageIndex]}
-            alt={selected.year}
-            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg transform transition-all duration-300 scale-95 hover:scale-100"
-          />
-          {/* Prev/Next dentro de la imagen */}
+          
+          <div className="relative max-w-7xl max-h-[85vh] p-4 flex flex-col items-center">
+             <img
+              src={selected.images[imageIndex]}
+              alt={selected.year}
+              className="max-h-full max-w-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-800"
+            />
+            
+            <div className="mt-6 text-center">
+               <p className="text-slate-400 text-sm font-medium">{selected.year} — Imagen {imageIndex + 1} de {selected.images.length}</p>
+            </div>
+          </div>
+
           {selected.images.length > 1 && (
             <>
               <button
                 onClick={prevImage}
-                className="cursor-pointer absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-cyan-500 transition"
+                className="cursor-pointer absolute top-1/2 left-8 -translate-y-1/2 bg-slate-900/80 backdrop-blur-md p-4 rounded-full text-white border border-slate-700 hover:border-cyan-500 transition shadow-xl"
               >
-                <FaChevronLeft />
+                <FaChevronLeft size={24} />
               </button>
               <button
                 onClick={nextImage}
-                className="cursor-pointer absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-cyan-500 transition"
+                className="cursor-pointer absolute top-1/2 right-8 -translate-y-1/2 bg-slate-900/80 backdrop-blur-md p-4 rounded-full text-white border border-slate-700 hover:border-cyan-500 transition shadow-xl"
               >
-                <FaChevronRight />
+                <FaChevronRight size={24} />
               </button>
             </>
           )}

@@ -12,7 +12,15 @@ export const projects = [
     title: "OPT - TexOne",
     description:
       "OPT es un rastreador de pedidos para TexOne que permite un seguimiento detallado de cada orden, facilitando el control tanto para trabajadores como para clientes.",
-    tech: ["Spring Boot", "MySQL", "HTML", "CSS", "JavaScript", "TailwindCSS", "Java"],
+    tech: [
+      "Spring Boot",
+      "MySQL",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TailwindCSS",
+      "Java",
+    ],
     github: "https://github.com/TexOne-OPT",
     demo: null,
     image: "https://imgur.com/qjObCWL.png",
@@ -28,7 +36,8 @@ export const projects = [
   },
   {
     title: "LaPlace Transform - APP",
-    description: "Este proyecto es una aplicación web que permite calcular la Transformada de Laplace y su inversa para funciones matemáticas, proyecto academico para la ingeniería.",
+    description:
+      "Este proyecto es una aplicación web que permite calcular la Transformada de Laplace y su inversa para funciones matemáticas, proyecto academico para la ingeniería.",
     tech: ["React", "Vite", "Flask", "Python", "TailwindCSS", "SimPy"],
     github: "https://github.com/BgYato/LaPlace-Transform-App.git",
     demo: null,
@@ -36,18 +45,29 @@ export const projects = [
   },
   {
     title: "Our Projects",
-    description: "Este proyecto es un software de gestión de proyectos enfocado en metodologías SCRUM. Fue presentado como MVP para la ingeniería de sistemas, actualmente en construccion privada.",
-    tech: ["Java", "Spring Boot", "MySQL", "JavaScript", "React", "Vite", "TailwindCSS", "Redis"],
+    description:
+      "Este proyecto es un software de gestión de proyectos enfocado en metodologías SCRUM. Fue presentado como MVP para la ingeniería de sistemas, actualmente en construccion privada.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "JavaScript",
+      "React",
+      "Vite",
+      "TailwindCSS",
+      "Redis",
+    ],
     github: null,
     demo: null,
     image: "https://imgur.com/hjx67V1.png",
   },
   {
-    title: "Our Devices",
-    description: "Our Devices es un software de gestión de dispositivos en  tiempo real. Es un proyecto personal que abarca multiples ámbitos del desarrollo y con un gran alcance.",
-    tech: ["Java", "Spring Boot", "MySQL", "JavaScript", "React", "Vite", "TailwindCSS", "Python", "Flask", "PyQt6"],
-    github: "https://github.com/BgYato/our-devices.git",
-    demo: null,
-    image: "https://imgur.com/tgLJDnu.png",
+    title: "Antioquia RP - PCU (User Control Panel)",
+    description:
+      "Plataforma web integral para la gestión de usuarios y administración de servidores MTA:SA. Permite a los jugadores gestionar sus estadísticas, inventarios y propiedades en tiempo real, integrando una arquitectura de controladores y modelos en PHP con comunicación directa al servidor de juego.",
+    tech: ["PHP", "JavaScript", "MySQL", "CSS", "MTA:SA API", "Bootstrap"],
+    github: "https://github.com/BgYato/antioquiaroleplaymta",
+    demo: "https://antioquiaroleplaymta.vexy.host",
+    image: "https://imgur.com/rZHQC8F.png",
   },
 ];
