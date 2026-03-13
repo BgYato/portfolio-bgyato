@@ -40,11 +40,11 @@ function Skills() {
 
       <div className="max-w-6xl w-full flex flex-col items-center">
         {/* Header - Scaled for mobile vs desktop */}
-        <div className="text-center mb-4 md:mb-12 lg:mb-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+        <div className="text-center mb-6 md:mb-12 lg:mb-16">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
             Mi <span className="text-cyan-500">Tech Stack</span>
           </h2>
-          <div className="h-0.5 md:h-1 w-12 md:w-16 bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mx-auto mt-2 md:mt-4 rounded-full" />
+          <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Grid - Strictly optimized for vertical space on mobile */}
