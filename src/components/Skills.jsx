@@ -1,74 +1,96 @@
 import { skills } from "../utils/skillsData";
 
 function Skills() {
+  const categories = [
+    {
+      name: "Frontend",
+      skills: skills.filter(s => ["React", "Angular", "Vue.js", "HTML5", "CSS3", "JavaScript", "TypeScript", "TailwindCSS", "Bootstrap"].includes(s.name)),
+      className: "lg:col-span-2"
+    },
+    {
+      name: "Backend",
+      skills: skills.filter(s => ["Java", "Spring Boot", "Node.js", "Express", "Python", "PHP", "Kotlin", "JWT"].includes(s.name)),
+      className: "lg:col-span-1"
+    },
+    {
+      name: "Data Stack",
+      skills: skills.filter(s => ["MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Redis", "Power BI", "Tableau"].includes(s.name)),
+      className: "lg:col-span-1"
+    },
+    {
+      name: "DevOps & Cloud",
+      skills: skills.filter(s => ["Git", "GitHub", "Docker", "Kubernetes", "Jenkins", "AWS"].includes(s.name)),
+      className: "lg:col-span-1"
+    },
+    {
+      name: "Tools",
+      skills: skills.filter(s => ["Swagger", "Postman", "Jira", "Confluence", "Apache Kafka"].includes(s.name)),
+      className: "lg:col-span-1"
+    }
+  ];
+
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8"
+      className="h-screen w-full flex flex-col items-center justify-center px-4 md:px-12 lg:px-16 overflow-hidden relative"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400">
-        Skills
-      </h2>
+      {/* Decorative background glows consistent with other sections */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/[0.04] rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <p className="text-gray-300 text-center max-w-2xl mb-10">
-        Un listado general de los
-        <span className="text-cyan-400"> lenguajes</span>,
-        <span className="text-cyan-400"> tecnologías </span> y
-        <span className="text-cyan-400"> herramientas </span> que he aprendido y
-        aplicado en mis proyectos.
-      </p>
+      <div className="max-w-6xl w-full flex flex-col items-center">
+        {/* Header - Scaled for mobile vs desktop */}
+        <div className="text-center mb-4 md:mb-12 lg:mb-16">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+            Mi <span className="text-cyan-500">Tech Stack</span>
+          </h2>
+          <div className="h-0.5 md:h-1 w-12 md:w-16 bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent mx-auto mt-2 md:mt-4 rounded-full" />
+        </div>
 
-      {/* Versión escritorio */}
-      <div className="hidden md:grid grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-10 text-5xl">
-        {skills.map((skill, i) => {
-          const Icon = skill.icon;
-          return (
+        {/* Grid - Strictly optimized for vertical space on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8 w-full max-h-[80vh] md:max-h-none overflow-y-auto md:overflow-visible pr-1 md:pr-0 custom-scrollbar">
+          {categories.map((cat, i) => (
             <div
               key={i}
-              className="group relative flex items-center justify-center cursor-pointer"
+              className={`relative overflow-hidden p-3 md:p-6 lg:p-10 rounded-xl md:rounded-[2rem] border border-slate-800/60 bg-slate-900/40 backdrop-blur-2xl transition-all duration-500 md:hover:border-cyan-500/30 animate-fadeIn ${
+                cat.name === "Frontend" ? "md:col-span-2 lg:col-span-2" : "md:col-span-1"
+              }`}
+              style={{ animationDelay: `${i * 50}ms` }}
             >
-              <Icon
-                className={`text-gray-500 transition-all duration-300 group-hover:scale-110 skill-${i}`}
-              />
-              {/* Tooltip */}
-              <span className="absolute bottom-[-2rem] opacity-0 group-hover:opacity-100 text-sm bg-black/70 text-white px-2 py-1 rounded transition">
-                {skill.name}
-              </span>
-              <style>
-                {`
-                  .group:hover .skill-${i} {
-                    color: ${skill.color} !important;
-                  }
-                `}
-              </style>
-            </div>
-          );
-        })}
-      </div>
+              <div className="flex flex-col h-full">
+                <div className="flex items-center space-x-2 md:space-x-3 mb-2 md:mb-6">
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
+                  <h3 className="text-[10px] md:text-sm lg:text-base font-bold text-slate-100 uppercase tracking-tighter">
+                    {cat.name}
+                  </h3>
+                </div>
 
-      <div className="md:hidden w-full">
-        <div className="flex overflow-x-auto no-scrollbar py-4 space-x-8 text-4xl">
-          {skills.map((skill, i) => {
-            const Icon = skill.icon;
-            return (
-              <div
-                key={i}
-                className="flex flex-col items-center justify-center flex-shrink-0 w-20"
-              >
-                <Icon
-                  style={{ color: skill.color }}
-                  className={`transition-all duration-300 hover:scale-110 skill-${i}`}
-                />
-                <span className="mt-2 text-xs text-gray-300">{skill.name}</span>
+                <div className="flex flex-wrap gap-1.5 md:gap-3">
+                  {cat.skills.map((skill, idx) => {
+                    const Icon = skill.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="flex items-center space-x-1.5 md:space-x-3 px-2 py-0.5 md:px-4 md:py-2 rounded-lg md:rounded-xl bg-slate-800/30 border border-slate-800/40 md:hover:border-slate-600/60 transition-all duration-300 md:hover:-translate-y-0.5 cursor-default"
+                      >
+                        <Icon 
+                          className="text-xs md:text-base lg:text-xl grayscale opacity-60 md:hover:grayscale-0 md:hover:opacity-100 transition-all duration-300" 
+                          style={{ color: skill.color }} 
+                        />
+                        <span className="text-[9px] md:text-[10px] lg:text-[13px] font-medium text-slate-400 md:hover:text-slate-100 transition-colors">
+                          {skill.name}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            );
-          })}
-        </div>
-
-        <div className="flex justify-center mt-2">
-          <span className="text-gray-500 text-2xl animate-pulse">⇆</span>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Background Glows are now at the top of the component */}
     </section>
   );
 }

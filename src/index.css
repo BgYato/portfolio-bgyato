@@ -61,13 +61,7 @@ html {
   overflow: hidden;
 }
 
-.about-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #22d3ee;
-  margin-bottom: 3rem;
-  text-align: center;
-}
+/* .about-title removed in favor of utility classes */
 
 .about-content {
   z-index: 10;
@@ -89,7 +83,7 @@ html {
 }
 
 .highlight {
-  color: #22d3ee;
+  color: #06b6d4; /* cyan-500 */
   font-weight: 600;
 }
 

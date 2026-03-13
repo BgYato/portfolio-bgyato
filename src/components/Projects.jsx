@@ -39,16 +39,19 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-8 py-20 bg-transparent"
+      className="h-screen flex flex-col items-center justify-center px-6 md:px-8 bg-transparent overflow-hidden"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400">
-        Proyectos
-      </h2>
+      <div className="text-center mb-10 md:mb-16">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+          Mis <span className="text-cyan-500">Proyectos</span>
+        </h2>
+        <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
+      </div>
 
-      <p className="text-gray-300 text-center max-w-2xl mb-10">
+      <p className="text-slate-400 text-center max-w-2xl mb-12 hidden md:block">
         Una selección de mis trabajos más recientes, enfocados en
-        <span className="text-cyan-400"> escalabilidad</span> y
-        <span className="text-cyan-400"> diseño intuitivo</span>.
+        <span className="text-cyan-500"> escalabilidad</span> y
+        <span className="text-cyan-500"> diseño intuitivo</span>.
       </p>
 
       <div className="relative w-full max-w-6xl">

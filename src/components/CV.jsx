@@ -2,11 +2,16 @@ function CV() {
   return (
     <section
       id="cv"
-      className="min-h-screen flex flex-col items-center justify-center px-8"
+      className="h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 className="text-3xl font-bold mb-10 text-cyan-400">Hoja de Vida</h2>
+      <div className="text-center mb-12 lg:mb-20">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+          Hoja de <span className="text-cyan-500">Vida</span>
+        </h2>
+        <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
+      </div>
 
-      <p className="text-gray-300 text-center max-w-2xl mb-10">
+      <p className="text-slate-400 text-center max-w-2xl mb-12">
         Acá podrás ver y descargar mi hoja de vida en formato PDF, que incluye
         un resumen de mi experiencia, educación y habilidades.
       </p>
