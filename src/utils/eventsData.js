@@ -52,13 +52,28 @@ export const events = [
     ]
   },
   {
-    year: "2025 - Presente",
+    year: "2025",
     description: "Actualmente curso Ingeniería de Sistemas en la CUN para fortalecer mi perfil profesional.",
     highlights: [
       "Aprendizaje de nuevas áreas como BI y arquitecturas empresariales.",
       "Participación en proyectos universitarios y personales.",
       "Desarrollo continuo de habilidades técnicas y blandas.",
       "Exploración de nuevas tecnologías y tendencias en IT.",
+      "Desarrollo de software y proyectos personales con altos niveles de calidad.",
+    ],
+    images: [
+      null
+    ]
+  },
+  {
+    year: "Actualidad",
+    description: "Desarrollo profesional en el sector IT y crecimiento personal.",
+    highlights: [
+      "Actualmente trabajo como Analista JR para Servientrega.",
+      "Creación de un software de panel de control de usuarios para un servidor de MTA:SA.",
+      "Profundización en áreas como redes e infraestructura para perfilamiento laboral",
+      "Fortalecimiento de habilidades en lógica de programación y estructuras de datos.",
+      "Refuerzo en trabajo con repositorios para el desarrollo de software.",
     ],
     images: [
       null
