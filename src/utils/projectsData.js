@@ -5,7 +5,6 @@ export const projects = [
       "Mi primer proyecto creado para una software de ventas para una empresa de bolsos y accesorios para motociclistas.",
     tech: ["PHP", "Bootstrap", "MySQL"],
     github: "https://github.com/BgYato/OTAVO-web.git",
-    demo: null,
     image: "https://imgur.com/oFW3U7R.png",
   },
   {
@@ -22,7 +21,6 @@ export const projects = [
       "Java",
     ],
     github: "https://github.com/TexOne-OPT",
-    demo: null,
     image: "https://imgur.com/qjObCWL.png",
   },
   {
@@ -31,7 +29,6 @@ export const projects = [
       "Proyecto presentado en SENASoft 2023: desarrollo de un LMS con funcionalidades enfocadas en reducir la deserción estudiantil en carreras STEM para jóvenes de 17 a 35 años en educación superior.",
     tech: ["Laravel", "Vue", "Vite", "MySQL"],
     github: "https://github.com/BgYato/Nano-Navigators.git",
-    demo: null,
     image: "https://imgur.com/TRTCrG5.png",
   },
   {
@@ -40,7 +37,6 @@ export const projects = [
       "Este proyecto es una aplicación web que permite calcular la Transformada de Laplace y su inversa para funciones matemáticas, proyecto academico para la ingeniería.",
     tech: ["React", "Vite", "Flask", "Python", "TailwindCSS", "SimPy"],
     github: "https://github.com/BgYato/LaPlace-Transform-App.git",
-    demo: null,
     image: "https://imgur.com/UGPPWic.png",
   },
   {
@@ -58,7 +54,6 @@ export const projects = [
       "Redis",
     ],
     github: null,
-    demo: null,
     image: "https://imgur.com/hjx67V1.png",
   },
   {
