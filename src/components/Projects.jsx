@@ -42,16 +42,16 @@ function Projects() {
       className="h-screen flex flex-col items-center justify-center px-6 md:px-8 bg-transparent overflow-hidden"
     >
       <div className="text-center mb-10 md:mb-16">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100 tracking-tight transition-colors duration-300">
           Mis <span className="text-cyan-500">Proyectos</span>
         </h2>
         <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
       </div>
 
-      <p className="text-slate-400 text-center max-w-2xl mb-12 hidden md:block">
+      <p className="text-slate-600 dark:text-slate-400 text-center max-w-2xl mb-12 hidden md:block transition-colors duration-300">
         Una selección de mis trabajos más recientes, enfocados en
-        <span className="text-cyan-500"> escalabilidad</span> y
-        <span className="text-cyan-500"> diseño intuitivo</span>.
+        <span className="text-cyan-600 dark:text-cyan-500 font-semibold"> escalabilidad</span> y
+        <span className="text-cyan-600 dark:text-cyan-500 font-semibold"> diseño intuitivo</span>.
       </p>
 
       <div className="relative w-full max-w-6xl">
@@ -63,10 +63,10 @@ function Projects() {
           {projects.map((project, i) => (
             <div
               key={i}
-              className="min-w-[280px] sm:min-w-[320px] md:min-w-[350px] bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-xl 
-             shadow-lg hover:shadow-cyan-400/10 
-             hover:scale-[1.02] transition-all duration-300 
-             flex flex-col snap-center h-[460px]"
+              className="min-w-[280px] sm:min-w-[320px] md:min-w-[350px] bg-white/70 dark:bg-gray-800/40 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-xl 
+             shadow-lg dark:shadow-cyan-400/10 
+             hover:shadow-xl hover:scale-[1.02] transition-all duration-300 
+             flex flex-col snap-center h-[460px] overflow-hidden"
             >
               {/* Image Section */}
               <div className="w-full h-44 overflow-hidden rounded-t-xl group">
@@ -80,10 +80,10 @@ function Projects() {
               {/* Card Content - SIMPLIFIED */}
               <div className="flex-1 p-6 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 text-white line-clamp-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2 text-slate-800 dark:text-white line-clamp-2 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-xs md:text-sm line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-slate-600 dark:text-gray-400 text-xs md:text-sm line-clamp-3 leading-relaxed mb-4 transition-colors duration-300">
                     {project.description}
                   </p>
                   
@@ -107,7 +107,7 @@ function Projects() {
                 <div className="flex flex-col space-y-3 mt-auto">
                   <button
                     onClick={() => openDetails(project)}
-                    className="w-full px-4 py-2 bg-cyan-500 text-black font-bold rounded-lg hover:bg-cyan-400 transition text-sm cursor-pointer"
+                    className="w-full px-4 py-2 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-black font-bold rounded-lg hover:bg-cyan-700 dark:hover:bg-cyan-400 transition-colors text-sm cursor-pointer"
                   >
                     Ver detalles
                   </button>
@@ -116,7 +116,7 @@ function Projects() {
                     {project.github && (
                       <a
                         href={project.github}
-                        className="flex-1 px-4 py-2 bg-gray-700/50 text-white font-semibold rounded-lg hover:bg-gray-600 transition text-center text-xs flex items-center justify-center gap-2"
+                        className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-700/50 text-slate-800 dark:text-white font-semibold rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition text-center text-xs flex items-center justify-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -126,7 +126,7 @@ function Projects() {
                     {project.demo && (
                       <a
                         href={project.demo}
-                        className="flex-1 px-4 py-2 bg-gray-700/50 text-white font-semibold rounded-lg hover:bg-gray-600 transition text-center text-xs flex items-center justify-center gap-2"
+                        className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-700/50 text-slate-800 dark:text-white font-semibold rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition text-center text-xs flex items-center justify-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -169,11 +169,11 @@ function Projects() {
       {/* PROJECT DETAILS MODAL */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-fadeIn transition-colors duration-300"
           onClick={closeDetails}
         >
           <div 
-            className="relative w-full max-w-4xl max-h-[90vh] bg-gray-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row transition-colors duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -195,7 +195,7 @@ function Projects() {
 
             {/* Modal Content */}
             <div className="w-full md:w-1/2 p-6 md:p-10 overflow-y-auto flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4">
                 {selectedProject.title}
               </h3>
               
@@ -203,15 +203,15 @@ function Projects() {
                 {selectedProject.tech.map((t, j) => (
                   <span
                     key={j}
-                    className="px-3 py-1 text-xs bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20"
+                    className="px-3 py-1 text-xs bg-cyan-100 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 rounded-full border border-cyan-200 dark:border-cyan-500/20"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="prose prose-invert prose-sm max-w-none mb-8">
-                <p className="text-gray-300 leading-relaxed text-base">
+              <div className="prose prose-sm dark:prose-invert max-w-none mb-8">
+                <p className="text-slate-600 dark:text-gray-300 leading-relaxed text-base transition-colors duration-300">
                   {selectedProject.description}
                 </p>
               </div>
@@ -220,7 +220,7 @@ function Projects() {
                 {selectedProject.github && (
                   <a
                     href={selectedProject.github}
-                    className="flex-1 px-8 py-3 bg-white text-black font-bold rounded-xl hover:bg-cyan-400 transition-all text-center flex items-center justify-center gap-2"
+                    className="flex-1 px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-gray-800 dark:hover:bg-cyan-400 transition-all text-center flex items-center justify-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -230,7 +230,7 @@ function Projects() {
                 {selectedProject.demo && (
                   <a
                     href={selectedProject.demo}
-                    className="flex-1 px-8 py-3 bg-gray-800 text-white font-bold rounded-xl hover:bg-gray-700 transition border border-white/10 text-center flex items-center justify-center gap-2"
+                    className="flex-1 px-8 py-3 bg-gray-100 dark:bg-gray-800 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition border border-gray-300 dark:border-white/10 text-center flex items-center justify-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
