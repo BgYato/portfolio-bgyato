@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import { FaEye } from "react-icons/fa";
+import SiteViews from "react-siteviews";
 
 function Hero() {
   const [lastCommit, setLastCommit] = useState(null);
@@ -76,7 +78,7 @@ function Hero() {
           👇
         </p>
 
-        <div className="flex justify-center md:justify-start space-x-4">
+        <div className="flex flex-wrap justify-center md:justify-start gap-4">
           <a
             href="#contact"
             className="px-6 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500 hover:text-black transition"
@@ -89,6 +91,18 @@ function Hero() {
           >
             Continuar
           </a>
+
+          {/* Contador de visitas */}
+          <div className="px-6 py-3 border border-gray-600 text-gray-300 rounded-lg flex items-center gap-3 select-none">
+            <FaEye className="text-cyan-500" />
+            <span>Vistas:</span>
+            <SiteViews
+              projectName="portfolio-bgyato-v1"
+              className="text-cyan-400 font-bold font-mono"
+            >
+              ...
+            </SiteViews>
+          </div>
         </div>
 
         {/* Última actualización */}
