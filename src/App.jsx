@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import ScrollButtons from "./components/ScrollButtons";
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 
 const Projects = lazy(() => import("./components/Projects"));
 const Timeline = lazy(() => import("./components/Timeline"));
@@ -13,10 +13,35 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   const [isClickable, setIsClickable] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    // Check initial preference
+    if (localStorage.theme === 'light') {
+      document.documentElement.classList.remove('dark');
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      setIsDarkMode(true);
+      localStorage.setItem('theme', 'dark'); // Default to dark for current users
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
-      <Navbar /> 
+    <div className="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-800 dark:text-white min-h-screen">
+      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} /> 
       <Hero /> 
       <About /> 
       <Skills />

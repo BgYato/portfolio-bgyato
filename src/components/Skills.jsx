@@ -41,7 +41,7 @@ function Skills() {
       <div className="max-w-6xl w-full flex flex-col items-center">
         {/* Header - Scaled for mobile vs desktop */}
         <div className="text-center mb-6 md:mb-12 lg:mb-16">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100 tracking-tight transition-colors duration-300">
             Mi <span className="text-cyan-500">Tech Stack</span>
           </h2>
           <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
@@ -52,7 +52,7 @@ function Skills() {
           {categories.map((cat, i) => (
             <div
               key={i}
-              className={`relative overflow-hidden p-3 md:p-6 lg:p-10 rounded-xl md:rounded-[2rem] border border-slate-800/60 bg-slate-900/40 backdrop-blur-2xl transition-all duration-500 md:hover:border-cyan-500/30 animate-fadeIn ${
+              className={`relative overflow-hidden p-3 md:p-6 lg:p-10 rounded-xl md:rounded-[2rem] border border-gray-200 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/40 backdrop-blur-2xl transition-all duration-500 hover:border-cyan-500/30 animate-fadeIn ${
                 cat.name === "Frontend" ? "md:col-span-2 lg:col-span-2" : "md:col-span-1"
               }`}
               style={{ animationDelay: `${i * 50}ms` }}
@@ -60,7 +60,7 @@ function Skills() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center space-x-2 md:space-x-3 mb-2 md:mb-6">
                   <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)]" />
-                  <h3 className="text-[10px] md:text-sm lg:text-base font-bold text-slate-100 uppercase tracking-tighter">
+                  <h3 className="text-[10px] md:text-sm lg:text-base font-bold text-slate-800 dark:text-slate-100 uppercase tracking-tighter transition-colors duration-300">
                     {cat.name}
                   </h3>
                 </div>
@@ -71,13 +71,13 @@ function Skills() {
                     return (
                       <div
                         key={idx}
-                        className="flex items-center space-x-1.5 md:space-x-3 px-2 py-0.5 md:px-4 md:py-2 rounded-lg md:rounded-xl bg-slate-800/30 border border-slate-800/40 md:hover:border-slate-600/60 transition-all duration-300 md:hover:-translate-y-0.5 cursor-default"
+                        className="flex items-center space-x-1.5 md:space-x-3 px-2 py-0.5 md:px-4 md:py-2 rounded-lg md:rounded-xl bg-gray-100 dark:bg-slate-800/30 border border-gray-200 dark:border-slate-800/40 hover:border-gray-300 dark:hover:border-slate-600/60 transition-all duration-300 md:hover:-translate-y-0.5 cursor-default"
                       >
                         <Icon 
                           className="text-xs md:text-base lg:text-xl grayscale opacity-60 md:hover:grayscale-0 md:hover:opacity-100 transition-all duration-300" 
                           style={{ color: skill.color }} 
                         />
-                        <span className="text-[9px] md:text-[10px] lg:text-[13px] font-medium text-slate-400 md:hover:text-slate-100 transition-colors">
+                        <span className="text-[9px] md:text-[10px] lg:text-[13px] font-medium text-slate-600 dark:text-slate-400 md:hover:text-slate-900 md:dark:hover:text-slate-100 transition-colors">
                           {skill.name}
                         </span>
                       </div>

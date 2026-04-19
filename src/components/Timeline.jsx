@@ -87,7 +87,7 @@ function Timeline({ isClickable, setIsClickable }) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="text-center mb-12 lg:mb-20">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100 tracking-tight transition-colors duration-300">
           Mi <span className="text-cyan-500">Trayectoria</span>
         </h2>
         <div className="h-1 w-16 bg-cyan-500/20 mx-auto mt-4 rounded-full" />
@@ -127,16 +127,16 @@ function Timeline({ isClickable, setIsClickable }) {
                   <div
                     className={`w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full border-2 transition-all duration-300 ${
                       isActive
-                        ? "bg-white border-cyan-400 scale-110 shadow-[0_0_12px_rgba(34,211,238,0.8)]"
-                        : "bg-slate-700 border-slate-600 group-hover:border-cyan-500/50 group-hover:scale-110"
+                        ? "bg-white border-cyan-500 dark:border-cyan-400 scale-110 shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+                        : "bg-slate-300 dark:bg-slate-700 border-slate-400 dark:border-slate-600 group-hover:border-cyan-500/50 group-hover:scale-110"
                     }`}
                   />
                 </div>
                 <span
                   className={`mt-2 md:mt-4 text-[9px] md:text-xs font-medium tracking-wider transition-all duration-300 ${
                     isActive
-                      ? "text-cyan-400"
-                      : "text-slate-500 group-hover:text-slate-300"
+                      ? "text-cyan-600 dark:text-cyan-400"
+                      : "text-slate-500 group-hover:text-slate-800 dark:text-slate-500 dark:group-hover:text-slate-300"
                   }`}
                 >
                   {e.year}
@@ -145,7 +145,7 @@ function Timeline({ isClickable, setIsClickable }) {
                 {/* Year Badge on Hover */}
                 {!isActive && (
                   <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                     <span className="text-[10px] bg-slate-800 text-slate-300 py-1 px-2 rounded border border-slate-700">
+                     <span className="text-[10px] bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-1 px-2 rounded border border-slate-200 dark:border-slate-700 shadow-md">
                         {e.year}
                      </span>
                   </div>
@@ -162,7 +162,7 @@ function Timeline({ isClickable, setIsClickable }) {
         className="w-full max-w-5xl animate-fadeIn"
       >
         {selected ? (
-          <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-5 md:p-10 shadow-2xl relative overflow-hidden group">
+          <div className="bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl p-5 md:p-10 shadow-2xl relative overflow-hidden group transition-colors duration-300">
             {/* Subtle Gradient Accent */}
             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-500 opacity-50" />
             
@@ -170,7 +170,7 @@ function Timeline({ isClickable, setIsClickable }) {
               {/* Carrusel de Imágenes - Oculto en móvil */}
               {selected.images && selected.images.length > 0 && (
                 <div className="hidden md:block relative group/image">
-                  <div className="aspect-[4/3] w-full bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700/30">
+                  <div className="aspect-[4/3] w-full bg-slate-100 dark:bg-slate-800/50 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700/30">
                     {selected.images[imageIndex] ? (
                       <img
                         src={selected.images[imageIndex]}
@@ -224,15 +224,15 @@ function Timeline({ isClickable, setIsClickable }) {
               {/* Texto y Detalles */}
               <div className="flex flex-col">
                 <div className="flex items-center space-x-3 mb-3 md:mb-4">
-                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase px-2 py-0.5 md:px-3 md:py-1 bg-cyan-950/30 border border-cyan-500/20 rounded-full">
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-600 dark:text-cyan-400 uppercase px-2 py-0.5 md:px-3 md:py-1 bg-cyan-100 dark:bg-cyan-950/30 border border-cyan-300 dark:border-cyan-500/20 rounded-full">
                     Evento
                   </span>
-                  <h3 className="text-xl md:text-3xl font-bold text-white">
+                  <h3 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-white transition-colors duration-300">
                     {selected.year}
                   </h3>
                 </div>
                 
-                <p className="text-slate-300 text-sm md:text-lg leading-relaxed mb-4 md:mb-8">
+                <p className="text-slate-600 dark:text-slate-300 text-sm md:text-lg leading-relaxed mb-4 md:mb-8 transition-colors duration-300">
                   {selected.description}
                 </p>
 
@@ -246,7 +246,7 @@ function Timeline({ isClickable, setIsClickable }) {
                           className="flex items-start group/li"
                         >
                           <div className="mt-1.5 mr-2 md:mr-3 w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-cyan-500 shrink-0 group-hover/li:scale-125 transition-transform" />
-                          <span className="text-slate-400 text-xs md:text-sm leading-tight md:leading-snug group-hover/li:text-slate-200 transition-colors">
+                          <span className="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-tight md:leading-snug group-hover/li:text-slate-800 dark:group-hover/li:text-slate-200 transition-colors">
                             {h}
                           </span>
                         </li>
@@ -258,8 +258,8 @@ function Timeline({ isClickable, setIsClickable }) {
             </div>
           </div>
         ) : (
-          <div className="bg-slate-900/20 border border-dashed border-slate-700 rounded-2xl p-20 text-center">
-            <p className="text-slate-500 italic">
+          <div className="bg-slate-100 dark:bg-slate-900/20 border border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-20 text-center transition-colors duration-300">
+            <p className="text-slate-600 dark:text-slate-500 italic">
               Explora mi viaje académico y profesional seleccionando un hito en la línea.
             </p>
           </div>
