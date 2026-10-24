@@ -1,3 +1,8 @@
+const driveFileId = "1l3lfUfDmO29pRSzzaCnz9PcZBqsNyoZ6";
+
+const cvPreviewUrl = `https://drive.google.com/file/d/${driveFileId}/preview`;
+const cvDownloadUrl = `https://drive.google.com/uc?export=download&id=${driveFileId}`;
+
 function CV() {
   return (
     <section
@@ -19,7 +24,7 @@ function CV() {
       <div className="grid md:grid-cols-2 gap-10 items-center w-full max-w-6xl">
         <div className="flex flex-col space-y-4">
           <a
-            href="/cv.pdf"
+            href={cvPreviewUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-black font-semibold rounded-lg hover:bg-cyan-700 dark:hover:bg-cyan-400 transition text-center"
@@ -27,7 +32,7 @@ function CV() {
             Ver CV Completo
           </a>
           <a
-            href="/cv.pdf"
+            href={cvDownloadUrl}
             download
             className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-slate-800 dark:text-white font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition text-center"
           >
@@ -37,7 +42,7 @@ function CV() {
 
         <div className="hidden md:block w-full h-[500px] xl:h-[400px] bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-transparent rounded-lg overflow-hidden shadow-lg transition-colors duration-300">
           <iframe
-            src="/cv.pdf"
+            src={cvPreviewUrl}
             title="CV Preview"
             className="w-full h-full"
           ></iframe>
