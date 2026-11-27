@@ -24,19 +24,12 @@ export const projects = [
     image: "https://imgur.com/qjObCWL.png",
   },
   {
-    title: "Nano Navigators - SenaSoft 2023",
-    description:
-      "Proyecto presentado en SENASoft 2023: desarrollo de un LMS con funcionalidades enfocadas en reducir la deserción estudiantil en carreras STEM para jóvenes de 17 a 35 años en educación superior.",
-    tech: ["Laravel", "Vue", "Vite", "MySQL"],
-    github: "https://github.com/BgYato/Nano-Navigators.git",
-    image: "https://imgur.com/TRTCrG5.png",
-  },
-  {
     title: "LaPlace Transform - APP",
     description:
       "Este proyecto es una aplicación web que permite calcular la Transformada de Laplace y su inversa para funciones matemáticas, proyecto academico para la ingeniería.",
     tech: ["React", "Vite", "Flask", "Python", "TailwindCSS", "SimPy"],
     github: "https://github.com/BgYato/LaPlace-Transform-App.git",
+    demo: "https://laplace.bgyato.com/",
     image: "https://imgur.com/UGPPWic.png",
   },
   {
@@ -57,12 +50,47 @@ export const projects = [
     image: "https://imgur.com/hjx67V1.png",
   },
   {
+    title: "OurDevices",
+    description:
+      "Plataforma para gestionar dispositivos desde un dashboard web, una aplicación móvil y un cliente de escritorio, conectados a una API REST con autenticación y telemetría.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "React",
+      "Python",
+      "PyQt6",
+      "React Native",
+      "TypeScript",
+      "MySQL",
+      "Docker",
+    ],
+    github: "https://github.com/BgYato/our-devices",
+    demo: "https://ourdevices.bgyato.com/",
+    image: "/images/ourdevices.png",
+    imageFit: "contain",
+  },
+  {
     title: "Antioquia RP - PCU (User Control Panel)",
     description:
       "Plataforma web integral para la gestión de usuarios y administración de servidores MTA:SA. Permite a los jugadores gestionar sus estadísticas, inventarios y propiedades en tiempo real, integrando una arquitectura de controladores y modelos en PHP con comunicación directa al servidor de juego.",
     tech: ["PHP", "JavaScript", "MySQL", "CSS", "MTA:SA API", "Bootstrap"],
     github: "https://github.com/BgYato/antioquiaroleplaymta",
-    demo: "https://antioquiaroleplaymta.vexy.host",
     image: "https://imgur.com/rZHQC8F.png",
+  },
+  {
+    title: "Authenticator 2FA",
+    description:
+      "Extensión de navegador para importar y usar códigos TOTP/HOTP. Protege las cuentas en una bóveda cifrada local con AES-GCM y permite importar códigos desde QR, enlaces o claves.",
+    tech: [
+      "JavaScript",
+      "Chrome Extensions API",
+      "Manifest V3",
+      "Web Crypto API",
+      "TOTP/HOTP",
+      "Web Workers",
+      "jsQR",
+    ],
+    github: "https://github.com/BgYato/authenticator-2fa-extension",
+    image: "/images/authenticator-2fa.png",
   },
 ];

@@ -175,6 +175,8 @@ function Timeline({ isClickable, setIsClickable }) {
                       <img
                         src={selected.images[imageIndex]}
                         alt={selected.year}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-105 cursor-zoom-in"
                         onClick={openLightbox}
                       />
@@ -280,6 +282,7 @@ function Timeline({ isClickable, setIsClickable }) {
              <img
               src={selected.images[imageIndex]}
               alt={selected.year}
+              decoding="async"
               className="max-h-full max-w-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-800"
             />
             
