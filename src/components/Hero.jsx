@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { FaEye } from "react-icons/fa";
-import SiteViews from "react-siteviews";
+import SiteViewsCounter from "./SiteViewsCounter";
 
 function Hero() {
   const [lastCommit, setLastCommit] = useState(null);
@@ -39,6 +39,10 @@ function Hero() {
           <img
             src="https://imgur.com/tyGkvm3.png"
             alt="Foto de perfil"
+            width="320"
+            height="320"
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover rounded-full 
                  translate-y-[-15%] shadow-xl select-none"
           />
@@ -96,12 +100,12 @@ function Hero() {
           <div className="px-6 py-3 border border-slate-300 dark:border-gray-600 text-slate-600 dark:text-gray-300 bg-white/50 dark:bg-transparent rounded-lg flex items-center gap-3 select-none transition-colors duration-300">
             <FaEye className="text-cyan-600 dark:text-cyan-500" />
             <span>Vistas:</span>
-            <SiteViews
+            <SiteViewsCounter
               projectName="portfolio-bgyato-v1"
               className="text-cyan-700 dark:text-cyan-400 font-bold font-mono"
             >
               ...
-            </SiteViews>
+            </SiteViewsCounter>
           </div>
         </div>
 

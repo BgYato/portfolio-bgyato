@@ -1,6 +1,3 @@
-import { FaEye } from "react-icons/fa";
-import SiteViews from "react-siteviews";
-
 function Footer() {
   let currentYear = new Date().getFullYear();
 
