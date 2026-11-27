@@ -75,7 +75,7 @@ function Projects() {
                   alt={project.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`w-full h-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-110`}
                 />
               </div>
 
@@ -192,7 +192,7 @@ function Projects() {
                 src={selectedProject.image} 
                 alt={selectedProject.title} 
                 decoding="async"
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${selectedProject.imageFit === "contain" ? "object-contain" : "object-cover"}`}
               />
             </div>
 
